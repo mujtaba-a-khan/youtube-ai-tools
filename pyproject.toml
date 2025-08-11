@@ -1,0 +1,29 @@
+[project]
+name = "ytai"
+version = "0.1.0"
+description = "YouTube AI Tools with LangChain (LCEL)"
+requires-python = ">=3.10"
+authors = [{ name = "Mujtaba Khan", email = "mmak.edu.de@gmail.com" }]
+dependencies = [
+  "langchain>=0.2.12",
+  "langchain-core>=0.2.38",
+  "langchain-openai>=0.1.23",
+  "google-api-python-client>=2.143.0",
+  "youtube-transcript-api>=0.6.2",
+  "python-dotenv>=1.0.1",
+  "typer[all]>=0.12.3",
+  "rich>=13.7.1"
+]
+
+[project.optional-dependencies]
+ibm = ["langchain-ibm", "ibm-watsonx-ai"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+ytai = "ytai.cli:main"
